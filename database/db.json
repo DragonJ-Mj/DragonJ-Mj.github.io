@@ -1,0 +1,248 @@
+{
+  "profile": {
+    "name": "Dragon-J",
+    "designation": "Full Stack Developer with Python, AIML",
+    "bio": "I make things on the web — mostly with React, TypeScript, and Data Science. I have a passion for building scalable web applications and exploring the latest advancements in AI and machine learning."
+  },
+  "nav": [
+    {
+      "id": "projects",
+      "to": "/projects",
+      "label": "Projects"
+    },
+    {
+      "id": "blog",
+      "to": "/blog",
+      "label": "Blog"
+    },
+    {
+      "id": "about",
+      "to": "/about",
+      "label": "About"
+    },
+    {
+      "id": "notes",
+      "to": "/notes",
+      "label": "Notes"
+    },
+    {
+      "id": "sponsors",
+      "to": "/sponsors",
+      "label": "Sponsors"
+    },
+    {
+      "id": "uses",
+      "to": "/uses",
+      "label": "Uses"
+    }
+  ],
+  "sections": {
+    "home": [
+      {
+        "id": "intro-1",
+        "title": "Hi, I'm Dragon 🐉",
+        "description": "I am an energetic, ambitious person who has developed a mature and responsible approach to any task that I undertake.",
+        "meta": "Available for work",
+        "tags": [
+          "q"
+        ]
+      },
+      {
+        "id": "intro-2",
+        "title": "What I'm doing now",
+        "description": "Currently, I am working as a Software Engineer at IT Company's",
+        "meta": "Jan 2026 - Present"
+      }
+    ],
+    "projects": [
+      {
+        "id": "bf3746a6-2056-4a67-94f6-148b2fe81695",
+        "title": "Advance Tic Tac Toe",
+        "description": "\"A modern React implementation of Tic Tac Toe with an intelligent AI opponent.\"",
+        "meta": "2023",
+        "tags": [
+          "React",
+          "JavaScript",
+          "Tailwind CSS"
+        ]
+      },
+      {
+        "id": "41da3def-d6f3-4694-9a9e-68fb5f9d0380",
+        "title": "My Project Manager",
+        "description": "\"A sophisticated CRUD-based productivity suite designed for developer workflows.\"\n",
+        "meta": "2026",
+        "tags": [
+          "React",
+          "Tailwind CSS",
+          "NodeJS",
+          "JSON"
+        ]
+      },
+      {
+        "id": "30646787-8f35-49e5-b450-db041bdccd72",
+        "title": "My Notes Application",
+        "description": "A high-performance markdown-supported note-taking engine. Engineered for rapid thought capture with real-time synchronization and advanced categorization logic.\"",
+        "meta": "2026 - Present",
+        "tags": [
+          "React",
+          "Framer Motion",
+          "Tailwind CSS",
+          "JSON",
+          "NodeJS",
+          "ExpressJS"
+        ]
+      },
+      {
+        "id": "1955d0df-9924-4015-abcb-6cec7c80f55b",
+        "title": "Movies Hub Zone",
+        "description": "\"A cinematic media discovery engine featuring real-time data fetching from TMDB APIs.\"",
+        "meta": "2026",
+        "tags": [
+          "React",
+          "Tailwind CSS",
+          "JSON",
+          "NodeJS"
+        ]
+      },
+      {
+        "id": "59eda397-b222-4d55-90b5-7af69ff32dfb",
+        "title": "Birthday Website",
+        "description": "\"A heartfelt, interactive React application featuring personalized messaging and celebration logic.\"",
+        "meta": "2026",
+        "tags": [
+          "React",
+          "Tailwind CSS",
+          "JSON"
+        ]
+      },
+      {
+        "id": "bfebf3b4-b5c7-440a-98ba-8b7601f13621",
+        "title": "Personal Portfolio Website",
+        "description": "\"A high-performance cinematic portfolio featuring a dual-identity 'Developer Mode' and 'Hacker Mode' system.\"",
+        "tags": [
+          "React",
+          "Framer Motion",
+          "Tailwind CSS",
+          "TypeScript"
+        ],
+        "meta": "2026"
+      },
+      {
+        "id": "6dd8a04a-6661-4aa5-ba6c-b570ed048a46",
+        "title": "In-Chat Translator",
+        "description": "\"A real-time translation bridge for WhatsApp. Translates messages instantly within the UI using specialized APIs for global communication.\"",
+        "tags": [
+          "Whatsapp",
+          "JavaScript",
+          "NodeJS"
+        ],
+        "meta": "2022"
+      }
+    ],
+    "blog": [
+      {
+        "id": "3e58bc00-c891-4d3d-90f0-379d9419b9e7",
+        "title": "Fixing database not storing user data (my mistake & solution)"
+      },
+      {
+        "id": "69358abd-b286-4649-afc9-3236da929281",
+        "title": "Building a CNN Model for Crop & Soil Classification",
+        "meta": "Apr 2026 · 8 min read"
+      }
+    ],
+    "talks": [
+      {
+        "id": "t1",
+        "title": "Designing the invisible",
+        "description": "JSConf EU",
+        "meta": "Berlin · 2025",
+        "url": "https://example.com/talk1"
+      }
+    ],
+    "notes": [
+      {
+        "id": "n1",
+        "title": "Notes Application",
+        "description": "\"Turning quick thoughts into organized masterpieces.\"",
+        "meta": "March 26 - Present "
+      }
+    ],
+    "sponsors": [
+      {
+        "id": "s1",
+        "title": "Untitled",
+        "description": "No Sponsors yet",
+        "url": "https://example.com/acme",
+        "meta": "💎 Platinum"
+      }
+    ],
+    "uses": [
+      {
+        "id": "1cef529f-b47b-44ce-8eb8-ca856e06e1e9",
+        "title": "Hawk Gaming Mouse - Black",
+        "url": "https://kreo-tech.com/collections/gaming-mouse-and-mousepad/products/hawk-gaming-mouse",
+        "tags": [
+          "Mouse"
+        ],
+        "meta": "Mouse"
+      },
+      {
+        "id": "u1",
+        "title": "ASUS ROG Strix G15 15\"",
+        "description": "Daily driver",
+        "meta": "Gaming Laptop"
+      }
+    ],
+    "about": [
+      {
+        "id": "1d307ca0-b9ae-404a-a8ae-335dc0db0e6b",
+        "title": "Github",
+        "description": "DragonJ-Mj",
+        "url": "https://github.com/DragonJ-Mj"
+      },
+      {
+        "id": "c13c0e3f-fc1f-4c8c-a0c9-7f7d6f91f5da",
+        "title": "WhatsAPP",
+        "description": "+91 98266-30100",
+        "url": "https://wa.me/919826630100"
+      },
+      {
+        "id": "t1",
+        "title": "Email",
+        "description": "imdragonmj@gmail.com",
+        "meta": "Berlin · 2025",
+        "url": "mailto:imdragonmj@gmail.com"
+      }
+    ]
+  },
+  "pages": {
+    "projects": {
+      "title": "Projects",
+      "subtitle": "From concept to deployment: real-world projects that solve user problems."
+    },
+    "blog": {
+      "title": "Blog",
+      "subtitle": "long-form thinking, occasionally."
+    },
+    "talks": {
+      "title": "Talks",
+      "subtitle": "words spoken into microphones."
+    },
+    "notes": {
+      "title": "Notes",
+      "subtitle": "small thoughts."
+    },
+    "sponsors": {
+      "title": "Sponsors",
+      "subtitle": "thank you, sincerely."
+    },
+    "uses": {
+      "title": "Uses",
+      "subtitle": "the tools behind the work."
+    },
+    "about": {
+      "title": "About",
+      "subtitle": "Hi I'm Dragon-J , a Software Engineer & Security Researcher. Currently scaling infrastructure at IT Company in Pune. Specializing in Python-driven AI and defensive infrastructure"
+    }
+  }
+}
