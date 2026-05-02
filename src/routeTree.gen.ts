@@ -9,21 +9,14 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as UsesRouteImport } from './routes/uses'
 import { Route as SponsorsRouteImport } from './routes/sponsors'
 import { Route as ProjectsRouteImport } from './routes/projects'
-import { Route as NotesRouteImport } from './routes/notes'
-import { Route as LoginRouteImport } from './routes/login'
-import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as ExperienceRouteImport } from './routes/experience'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
-const UsesRoute = UsesRouteImport.update({
-  id: '/uses',
-  path: '/uses',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const SponsorsRoute = SponsorsRouteImport.update({
   id: '/sponsors',
   path: '/sponsors',
@@ -34,19 +27,14 @@ const ProjectsRoute = ProjectsRouteImport.update({
   path: '/projects',
   getParentRoute: () => rootRouteImport,
 } as any)
-const NotesRoute = NotesRouteImport.update({
-  id: '/notes',
-  path: '/notes',
+const ExperienceRoute = ExperienceRouteImport.update({
+  id: '/experience',
+  path: '/experience',
   getParentRoute: () => rootRouteImport,
 } as any)
-const LoginRoute = LoginRouteImport.update({
-  id: '/login',
-  path: '/login',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DashboardRoute = DashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogRoute = BlogRouteImport.update({
@@ -69,35 +57,29 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/blog': typeof BlogRoute
-  '/dashboard': typeof DashboardRoute
-  '/login': typeof LoginRoute
-  '/notes': typeof NotesRoute
+  '/contact': typeof ContactRoute
+  '/experience': typeof ExperienceRoute
   '/projects': typeof ProjectsRoute
   '/sponsors': typeof SponsorsRoute
-  '/uses': typeof UsesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/blog': typeof BlogRoute
-  '/dashboard': typeof DashboardRoute
-  '/login': typeof LoginRoute
-  '/notes': typeof NotesRoute
+  '/contact': typeof ContactRoute
+  '/experience': typeof ExperienceRoute
   '/projects': typeof ProjectsRoute
   '/sponsors': typeof SponsorsRoute
-  '/uses': typeof UsesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/blog': typeof BlogRoute
-  '/dashboard': typeof DashboardRoute
-  '/login': typeof LoginRoute
-  '/notes': typeof NotesRoute
+  '/contact': typeof ContactRoute
+  '/experience': typeof ExperienceRoute
   '/projects': typeof ProjectsRoute
   '/sponsors': typeof SponsorsRoute
-  '/uses': typeof UsesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -105,57 +87,42 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/blog'
-    | '/dashboard'
-    | '/login'
-    | '/notes'
+    | '/contact'
+    | '/experience'
     | '/projects'
     | '/sponsors'
-    | '/uses'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/blog'
-    | '/dashboard'
-    | '/login'
-    | '/notes'
+    | '/contact'
+    | '/experience'
     | '/projects'
     | '/sponsors'
-    | '/uses'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/blog'
-    | '/dashboard'
-    | '/login'
-    | '/notes'
+    | '/contact'
+    | '/experience'
     | '/projects'
     | '/sponsors'
-    | '/uses'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   BlogRoute: typeof BlogRoute
-  DashboardRoute: typeof DashboardRoute
-  LoginRoute: typeof LoginRoute
-  NotesRoute: typeof NotesRoute
+  ContactRoute: typeof ContactRoute
+  ExperienceRoute: typeof ExperienceRoute
   ProjectsRoute: typeof ProjectsRoute
   SponsorsRoute: typeof SponsorsRoute
-  UsesRoute: typeof UsesRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/uses': {
-      id: '/uses'
-      path: '/uses'
-      fullPath: '/uses'
-      preLoaderRoute: typeof UsesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/sponsors': {
       id: '/sponsors'
       path: '/sponsors'
@@ -170,25 +137,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProjectsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/notes': {
-      id: '/notes'
-      path: '/notes'
-      fullPath: '/notes'
-      preLoaderRoute: typeof NotesRouteImport
+    '/experience': {
+      id: '/experience'
+      path: '/experience'
+      fullPath: '/experience'
+      preLoaderRoute: typeof ExperienceRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/login': {
-      id: '/login'
-      path: '/login'
-      fullPath: '/login'
-      preLoaderRoute: typeof LoginRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/dashboard': {
-      id: '/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof DashboardRouteImport
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog': {
@@ -219,12 +179,10 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   BlogRoute: BlogRoute,
-  DashboardRoute: DashboardRoute,
-  LoginRoute: LoginRoute,
-  NotesRoute: NotesRoute,
+  ContactRoute: ContactRoute,
+  ExperienceRoute: ExperienceRoute,
   ProjectsRoute: ProjectsRoute,
   SponsorsRoute: SponsorsRoute,
-  UsesRoute: UsesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

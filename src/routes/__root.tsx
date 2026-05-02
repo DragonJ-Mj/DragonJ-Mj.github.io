@@ -1,4 +1,6 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { Header } from "@/components/Header";
+import { Footer } from "@/components/Footer";
 
 import appCss from "../styles.css?url";
 
@@ -29,11 +31,11 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "Dragon.xyz — Coder · Creator · Hacker" },
+      { name: "description", content: "Personal portfolio of a developer building tools, writing code, and shipping things that make workflows faster." },
+      { name: "author", content: "Dragon.xyz" },
+      { property: "og:title", content: "Dragon.xyz — Coder · Creator · Hacker" },
+      { property: "og:description", content: "Personal portfolio of a developer building tools, writing code, and shipping things." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
@@ -64,10 +66,14 @@ function RootShell({ children }: { children: React.ReactNode }) {
   );
 }
 
-import { useEffect } from "react";
-import { bootstrap } from "@/lib/store";
-
 function RootComponent() {
-  useEffect(() => { bootstrap(); }, []);
-  return <Outlet />;
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <main className="flex-1">
+        <Outlet />
+      </main>
+      <Footer />
+    </div>
+  );
 }
