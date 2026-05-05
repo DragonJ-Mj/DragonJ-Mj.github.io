@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sponsors — Dragon.xyz</title>
+  <meta name="description" content="Support the project — terms, payment and project brief." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main>
+    <div class="container">
+      <div class="section-label">Sponsors</div>
+      <h1 class="section-title">Friends of the Project</h1>
+      <p class="section-desc">Grateful to the community keeping Dragon's open-source fire blazing.</p>
+
+      <div id="step-bar" class="step-bar hidden">
+        <div class="step" data-step="terms"><div class="num">1</div><div class="label">Terms</div></div>
+        <div class="bar"></div>
+        <div class="step" data-step="payment"><div class="num">2</div><div class="label">Payment</div></div>
+        <div class="bar"></div>
+        <div class="step" data-step="form"><div class="num">3</div><div class="label">Brief</div></div>
+      </div>
+
+      <!-- INTRO -->
+      <section id="s-intro">
+        <div class="card" style="border:2px dashed var(--border); padding:3rem 2rem; text-align:center; max-width:600px; margin:0 auto 3rem">
+          <div style="font-size:2rem">✨</div>
+          <h2 style="margin-top:.75rem">No active sponsors yet</h2>
+          <p style="color:var(--muted); margin-top:.5rem">Be the first node synchronized — your name (or logo) lives right here.</p>
+        </div>
+        <p style="text-align:center; color:var(--muted); font-family:var(--font-mono); font-size:.75rem; text-transform:uppercase; letter-spacing:.2em; margin-bottom:2rem">Choose Your Impact Tier</p>
+        <div class="tier-grid" id="tiers"></div>
+      </section>
+
+      <!-- TERMS -->
+      <section id="s-terms" class="hidden">
+        <div class="card" style="max-width:760px; margin:0 auto">
+          <h2 style="margin-bottom:.5rem">🛡 Terms &amp; Conditions</h2>
+          <p style="color:var(--muted); font-size:.9rem; margin-bottom:1.5rem">Sponsoring <strong id="tier-pick"></strong>. Please read carefully before continuing.</p>
+          <div style="max-height:40vh; overflow-y:auto; background:var(--surface); border:1px solid var(--border); border-radius:.75rem; padding:1.25rem; margin-bottom:1.5rem; font-size:.9rem; color:var(--muted-2); line-height:1.7">
+            <p><strong>1. Voluntary contribution.</strong> Sponsorship is voluntary, non-refundable, and supports open-source development. No goods or services guaranteed.</p>
+            <p style="margin-top:.75rem"><strong>2. Project brief.</strong> After payment, fill a brief describing what you'd like built. Acceptance is at maintainer's discretion.</p>
+            <p style="margin-top:.75rem"><strong>3. Timeline.</strong> Best-effort, not guaranteed. Acknowledgement within 48 hours.</p>
+            <p style="margin-top:.75rem"><strong>4. IP &amp; licensing.</strong> Released under the project's open-source license unless privately negotiated.</p>
+            <p style="margin-top:.75rem"><strong>5. Refunds.</strong> Non-refundable once brief accepted; refund possible at maintainer's discretion within 7 days if declined.</p>
+            <p style="margin-top:.75rem"><strong>6. Communication.</strong> Updates via the email you provide.</p>
+            <p style="margin-top:.75rem"><strong>7. Privacy.</strong> Details used only for processing your sponsorship.</p>
+            <p style="margin-top:.75rem"><strong>8. Code of conduct.</strong> Respectful communication required. Abuse voids sponsorship without refund.</p>
+          </div>
+          <label style="display:flex; gap:.75rem; align-items:flex-start; margin-bottom:1.5rem; cursor:pointer">
+            <input type="checkbox" id="agree" onchange="document.getElementById('next-terms').disabled=!this.checked" />
+            <span style="font-size:.9rem">I have read and agree to the terms and conditions above.</span>
+          </label>
+          <div style="display:flex; justify-content:space-between; gap:1rem">
+            <button onclick="show('intro')" class="btn">← Back</button>
+            <button onclick="show('payment')" id="next-terms" class="btn btn-primary" disabled>Continue to Payment →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- PAYMENT -->
+      <section id="s-payment" class="hidden">
+        <div class="card" style="max-width:760px; margin:0 auto">
+          <h2 style="margin-bottom:.25rem">Payment — <span id="amt"></span></h2>
+          <p style="color:var(--muted); font-size:.9rem; margin-bottom:2rem">Send your contribution via UPI / bank transfer. You'll attach the screenshot in the next step.</p>
+          <div class="grid grid-2" style="margin-bottom:2rem">
+            <div class="upi-box">
+              <div class="label">UPI ID</div>
+              <div style="display:flex; justify-content:space-between; align-items:center; gap:.5rem; margin-top:.5rem">
+                <code id="upi">9826630100-2@ibl</code>
+                <button onclick="copyUpi()" class="btn" style="padding:.4rem .6rem">📋</button>
+              </div>
+            </div>
+            <div class="upi-box">
+              <div class="label">Amount</div>
+              <div style="font-size:1.75rem; font-weight:900; margin-top:.25rem" id="amt2"></div>
+            </div>
+          </div>
+          <ol style="color:var(--muted-2); font-size:.9rem; padding-left:1.5rem; margin-bottom:2rem; line-height:1.8">
+            <li>Open any UPI app (GPay, PhonePe, Paytm, BHIM…).</li>
+            <li>Pay <strong id="amt3"></strong> to <strong>9826630100-2@ibl</strong>.</li>
+            <li>Take a screenshot of the success screen.</li>
+            <li>Click <strong>I've Paid</strong> below and attach the screenshot.</li>
+          </ol>
+          <div style="display:flex; justify-content:space-between; gap:1rem">
+            <button onclick="show('terms')" class="btn">← Back</button>
+            <button onclick="show('form')" class="btn btn-primary">I've Paid — Continue →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- FORM -->
+      <section id="s-form" class="hidden">
+        <form class="card" style="max-width:760px; margin:0 auto" onsubmit="submitBrief(event)">
+          <h2 style="margin-bottom:.25rem">Project Brief</h2>
+          <p style="color:var(--muted); font-size:.9rem; margin-bottom:1.5rem">Tell me what you'd like built. The more detail, the better.</p>
+          <div class="field-row">
+            <div class="field"><label>Your Name</label><input name="name" required /></div>
+            <div class="field"><label>Email</label><input name="email" type="email" required /></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label>Phone (optional)</label><input name="phone" /></div>
+            <div class="field"><label>Project Type</label><input name="ptype" placeholder="Web app, Bot, API…" /></div>
+          </div>
+          <div class="field"><label>Description</label><textarea name="desc" rows="5" placeholder="Describe what you want built..."></textarea></div>
+          <div class="field">
+            <label>Key Points (add as many as you need)</label>
+            <div class="points-list" id="pts"></div>
+            <button type="button" class="add-point" onclick="addPoint()">+ Add another point</button>
+          </div>
+          <div class="field">
+            <label>Payment Screenshot</label>
+            <input type="file" name="ss" accept="image/*" />
+          </div>
+          <div style="display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem">
+            <button type="button" onclick="show('payment')" class="btn">← Back</button>
+            <button type="submit" class="btn btn-primary">Submit Brief →</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- DONE -->
+      <section id="s-done" class="hidden">
+        <div class="success">
+          <div class="check">✓</div>
+          <h2 style="font-size:2rem; margin-bottom:1rem">Thank you for sponsoring!</h2>
+          <p style="color:var(--muted); margin-bottom:2rem">Your brief has been opened in WhatsApp and email. Please send both messages to complete the request. I'll get back to you within 48 hours.</p>
+          <a href="/" class="btn btn-primary">← Back to Home</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="/script.js"></script>
+  <script>
+    mountChrome('/sponsors/');
+    const tiers = [
+      { key:'caffeine', name:'Caffeine Fuel', icon:'☕', cls:'amber', price:'₹499', desc:'Support node initialization.', perks:['Name in supporters registry','Supporter Discord access','Eternal gratitude'] },
+      { key:'believer', name:'Dragon Believer', icon:'♥', cls:'pink', price:'₹2,499', desc:'Core open-source supporter.', featured:true, perks:['Logo in registry','Early project access','Dragon digital badge','All Caffeine perks'] },
+      { key:'champion', name:'Open Source Champion', icon:'★', cls:'blue', price:'₹9,999', desc:'Enterprise system architect.', perks:['Premium logo placement','Direct feedback channel','Custom integrations','All Believer perks'] },
+    ];
+    let chosen = null;
+    document.getElementById('tiers').innerHTML = tiers.map((t,i) => `
+      <div class="tier-card ${t.featured?'featured':''}">
+        ${t.featured ? '<div style="position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:linear-gradient(135deg,var(--pink),#f43f5e); color:white; padding:.25rem .75rem; border-radius:999px; font-size:.7rem; font-weight:700">👑 Most Loved</div>' : ''}
+        <div class="tier-icon ${t.cls}">${t.icon}</div>
+        <h3>${t.name}</h3>
+        <p style="color:var(--muted); font-size:.85rem; margin-bottom:1.5rem">${t.desc}</p>
+        <div class="tier-price">${t.price}</div>
+        <p style="color:var(--muted); font-size:.85rem; margin-bottom:1rem">One-time contribution</p>
+        <ul class="tier-perks">${t.perks.map(p=>`<li>${p}</li>`).join('')}</ul>
+        <button class="btn btn-primary" style="width:100%" onclick="pick(${i})">Sponsor ${t.name} →</button>
+      </div>`).join('');
+
+    function pick(i){ chosen = tiers[i]; show('terms'); }
+    function show(s){
+      ['intro','terms','payment','form','done'].forEach(x => document.getElementById('s-'+x).classList.toggle('hidden', x !== s));
+      const bar = document.getElementById('step-bar');
+      bar.classList.toggle('hidden', s === 'intro' || s === 'done');
+      document.querySelectorAll('.step').forEach(el => {
+        const order = ['terms','payment','form'];
+        const i = order.indexOf(el.dataset.step);
+        const cur = order.indexOf(s);
+        el.classList.toggle('active', i === cur);
+        el.classList.toggle('done', i < cur);
+      });
+      if (chosen) {
+        document.getElementById('tier-pick').textContent = `${chosen.name} (${chosen.price})`;
+        document.getElementById('amt').textContent = chosen.price;
+        document.getElementById('amt2').textContent = chosen.price;
+        document.getElementById('amt3').textContent = chosen.price;
+      }
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+    function copyUpi(){ navigator.clipboard.writeText(document.getElementById('upi').textContent); alert('Copied!'); }
+
+    let points = [''];
+    function renderPoints(){
+      document.getElementById('pts').innerHTML = points.map((p,i)=>`
+        <div class="point-row">
+          <input value="${p.replace(/"/g,'&quot;')}" oninput="points[${i}]=this.value" placeholder="Point ${i+1}" />
+          ${points.length>1?`<button type="button" onclick="points.splice(${i},1); renderPoints()">✕</button>`:''}
+        </div>`).join('');
+    }
+    function addPoint(){ points.push(''); renderPoints(); }
+    renderPoints();
+
+    function submitBrief(e){
+      e.preventDefault();
+      const fd = new FormData(e.target);
+      const cleanPts = points.map(p=>p.trim()).filter(Boolean);
+      notifyOwner(`New Sponsor — ${chosen.name} (${chosen.price})`, {
+        Tier: `${chosen.name} — ${chosen.price}`,
+        Name: fd.get('name'), Email: fd.get('email'), Phone: fd.get('phone') || '—',
+        'Project Type': fd.get('ptype') || '—',
+        Description: fd.get('desc') || '—',
+        'Key Points': cleanPts.length ? cleanPts : ['—'],
+        'Payment Screenshot': fd.get('ss')?.name ? `${fd.get('ss').name} (please attach in email)` : 'Not attached',
+      });
+      show('done');
+    }
+  </script>
+</body>
+</html>

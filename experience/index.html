@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Registry — Dragon.xyz</title>
+  <meta name="description" content="Interactive technical deployment logs and neural history." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main>
+    <div class="container">
+      <div class="section-label">⚡ Log_Protocol_v5</div>
+      <h1 class="section-title" style="font-style:italic; text-transform:uppercase">Registry</h1>
+      <p class="section-desc">Full-stack deployment history and neural certification logs.</p>
+
+      <div class="timeline" id="timeline"></div>
+    </div>
+  </main>
+
+  <script src="/script.js"></script>
+  <script>
+    mountChrome('/experience/');
+    const timeline = [
+      {
+        date: '2023.11 — PRESENT', id: 'LOG_01', type: 'work',
+        title: 'Software Engineer', org: 'IT Company Pvt. Ltd',
+        points: [
+          'Architecting data-driven solutions using Python and Django frameworks for enterprise-level applications.',
+          'Implementing and fine-tuning ML algorithms (CNN, SVM, Random Forest) for suspicious activity detection.',
+          'Optimizing high-concurrency packet handling and real-time image processing using OpenCV.',
+          'Developing localized desktop GUI systems with Tkinter and SQLite for secure data management.',
+        ],
+        tags: ['Python', 'Django', 'CNN', 'SVM', 'TensorFlow'],
+      },
+      {
+        date: '2019.06 — 2023.04', id: 'LOG_02', type: 'education',
+        title: 'B-Tech — CSE', org: 'Malwa Institute of Technology',
+        points: [
+          'MAJOR: WhatsApp AI Bot — Developed a full-stack automation system with persistent memory and LLM integration.',
+          'MINOR: Real-time AI Translator — Engineered a low-latency API bridge for cross-language WhatsApp communication.',
+          'Focused on scalable web architecture using React, Vite, and Node.js for high-performance frontend delivery.',
+          'Maintained a triple-boot environment (Windows/Ubuntu/Kali) for multi-platform software validation.',
+        ],
+        tags: ['React', 'LLM', 'WhatsApp AI', 'Vite'],
+      },
+      {
+        date: '2020.05 — 2020.11', id: 'LOG_03', type: 'security',
+        title: 'Cyber Security & Ethical Hacking', org: 'EC-Council / Appin Lab',
+        points: [
+          'Conducted advanced reconnaissance and social engineering simulations in virtualized network labs.',
+          'Mastered penetration testing methodologies using Kali Linux, Metasploit, and Flipper Zero hardware.',
+          'Executed vulnerability assessments and system exploitation protocols within ethical boundaries.',
+          'Developed custom automation scripts for rapid security auditing and reconnaissance.',
+        ],
+        tags: ['Kali Linux', 'Metasploit', 'F-Zero', 'Pentesting'],
+      },
+    ];
+    document.getElementById('timeline').innerHTML = timeline.map(t => `
+      <div class="timeline-item">
+        <div class="timeline-date">⚡ ${t.date} // ${t.id}</div>
+        <h3 class="timeline-title">${t.title}</h3>
+        <div class="timeline-org">🗄 ${t.org} <span class="tag" style="float:right">${t.type}</span></div>
+        <ul class="timeline-points">
+          ${t.points.map(p => `<li>${p}</li>`).join('')}
+        </ul>
+        <div style="display:flex; flex-wrap:wrap; gap:.4rem; margin-top:1rem">
+          ${t.tags.map(g => `<span class="tag">${g}</span>`).join('')}
+        </div>
+      </div>`).join('');
+  </script>
+</body>
+</html>

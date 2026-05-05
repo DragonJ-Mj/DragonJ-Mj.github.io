@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Dragon.xyz</title>
+  <meta name="description" content="Get in touch — email, social, or direct message." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main>
+    <div class="container">
+      <div class="section-label">Contact</div>
+      <h1 class="section-title">Let's talk</h1>
+      <p class="section-desc">Have an idea, a project, or just want to say hi? My inbox is always open.</p>
+
+      <div class="grid" style="grid-template-columns:1fr 1.2fr; gap:1.5rem">
+        <div style="display:flex; flex-direction:column; gap:1.5rem">
+          <div class="card">
+            <h2 style="font-family:var(--font-display); font-size:1.25rem; margin-bottom:.25rem">Direct Contact</h2>
+            <p style="color:var(--muted); font-size:.85rem; margin-bottom:1rem">Reach out directly — I read everything.</p>
+            <a href="mailto:imdragonmj@gmail.com" class="card" style="display:flex; gap:.75rem; padding:.75rem; align-items:center; background:var(--surface)"><span style="width:36px; height:36px; border-radius:.4rem; background:rgba(59,130,246,.1); color:var(--accent); display:grid; place-items:center">✉</span><div><div class="font-mono" style="font-size:.65rem; color:var(--muted); text-transform:uppercase; letter-spacing:.15em">Email</div><div style="font-size:.9rem">imdragonmj@gmail.com</div></div></a>
+            <div class="card" style="display:flex; gap:.75rem; padding:.75rem; align-items:center; background:var(--surface); margin-top:.5rem"><span style="width:36px; height:36px; border-radius:.4rem; background:rgba(59,130,246,.1); color:var(--accent); display:grid; place-items:center">📍</span><div><div class="font-mono" style="font-size:.65rem; color:var(--muted); text-transform:uppercase; letter-spacing:.15em">Location</div><div style="font-size:.9rem">Pune, Maharashtra, India</div></div></div>
+            <div class="card" style="display:flex; gap:.75rem; padding:.75rem; align-items:center; background:var(--surface); margin-top:.5rem"><span style="width:36px; height:36px; border-radius:.4rem; background:rgba(59,130,246,.1); color:var(--accent); display:grid; place-items:center">📞</span><div><div class="font-mono" style="font-size:.65rem; color:var(--muted); text-transform:uppercase; letter-spacing:.15em">Phone</div><div style="font-size:.9rem">Available on request</div></div></div>
+          </div>
+
+          <div class="card">
+            <h2 style="font-family:var(--font-display); font-size:1.25rem; margin-bottom:.25rem">Social Links</h2>
+            <p style="color:var(--muted); font-size:.85rem; margin-bottom:1rem">Find me around the web.</p>
+            <div class="grid" style="grid-template-columns:1fr 1fr; gap:.5rem">
+              <a href="https://github.com/DragonJ-Mj" class="card" style="padding:.75rem; background:var(--surface)"><strong>GitHub</strong><div class="font-mono" style="font-size:.7rem; color:var(--muted)">@DragonJ-Mj</div></a>
+              <a href="https://twitter.com/DragonJ-Mj" class="card" style="padding:.75rem; background:var(--surface)"><strong>Twitter</strong><div class="font-mono" style="font-size:.7rem; color:var(--muted)">@DragonJ-Mj</div></a>
+              <a href="https://www.youtube.com/@DragonHubAcademy" class="card" style="padding:.75rem; background:var(--surface)"><strong>YouTube</strong><div class="font-mono" style="font-size:.7rem; color:var(--muted)">@DragonHubAcademy</div></a>
+              <a href="https://my-portfolio-new-beta-coral.vercel.app/" class="card" style="padding:.75rem; background:var(--surface)"><strong>Website</strong><div class="font-mono" style="font-size:.7rem; color:var(--muted)">Vashu.dev</div></a>
+            </div>
+          </div>
+        </div>
+
+        <form id="cf" class="card" onsubmit="submitContact(event)">
+          <h2 style="font-family:var(--font-display); font-size:1.5rem; margin-bottom:.25rem">Send me a message</h2>
+          <p style="color:var(--muted); font-size:.85rem; margin-bottom:1.5rem">I'll get back to you within 24 hours.</p>
+          <div class="field-row">
+            <div class="field"><label>Your Name</label><input name="name" placeholder="John Doe" required /></div>
+            <div class="field"><label>Email</label><input name="email" type="email" placeholder="john@example.com" required /></div>
+          </div>
+          <div class="field"><label>Subject</label><input name="subject" placeholder="Let's collaborate" required /></div>
+          <div class="field"><label>Message</label><textarea name="message" rows="6" placeholder="Tell me about your idea..." required></textarea></div>
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center">Send Message →</button>
+          <p id="cf-msg" style="text-align:center; color:var(--green); margin-top:1rem; display:none">Opening WhatsApp & email — please send to deliver your message.</p>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <style>
+    @media (max-width:900px){ main .grid[style*="grid-template-columns:1fr 1.2fr"]{grid-template-columns:1fr !important} }
+  </style>
+
+  <script src="/script.js"></script>
+  <script>
+    mountChrome('/contact/');
+    function submitContact(e){
+      e.preventDefault();
+      const fd = new FormData(e.target);
+      notifyOwner(`New Contact — ${fd.get('subject')}`, {
+        Name: fd.get('name'), Email: fd.get('email'),
+        Subject: fd.get('subject'), Message: fd.get('message'),
+      });
+      document.getElementById('cf-msg').style.display = 'block';
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — Dragon.xyz</title>
+  <meta name="description" content="Developer building unified workspaces. Skills, interests, and the story behind the code." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main>
+    <div class="container">
+      <div class="section-label">⚡ Identity_Profile</div>
+      <h1 style="font-family:var(--font-display); font-size:clamp(3rem,8vw,6rem); font-style:italic; text-transform:uppercase; letter-spacing:-.04em; margin-bottom:3rem">WHO <span class="text-gradient" style="font-style:normal">I AM</span></h1>
+
+      <div class="bento">
+        <div class="col-8">
+          <h2 style="font-size:1.75rem; margin-bottom:1.5rem">My Story</h2>
+          <p style="color:var(--muted-2); margin-bottom:1rem">I'm a developer and student currently associated with <span style="color:var(--accent-2)">IT Company Pvt Ltd</span>. I specialize in building unified workspaces and exploring the intersection of <strong>Full-Stack Development</strong>, <strong>AI/ML</strong>, and <strong>Cybersecurity</strong>.</p>
+          <p style="color:var(--muted-2)">Whether I'm architecting React applications or refining ML models like <span style="color:var(--accent-2)">CNNs and SVMs</span>, my goal is to ship elegant tools that solve real-world problems.</p>
+          <div style="display:flex; flex-wrap:wrap; gap:1.5rem; margin-top:2rem; padding-top:1.5rem; border-top:1px solid var(--border)">
+            <div class="font-mono" style="font-size:.75rem; color:var(--muted)">📍 PUNE / INDORE</div>
+            <div class="font-mono" style="font-size:.75rem; color:var(--muted)">✉ imdragonmj@gmail.com</div>
+          </div>
+        </div>
+
+        <div class="col-4" style="background:linear-gradient(135deg, rgba(59,130,246,.1), transparent); border-color:rgba(59,130,246,.2)">
+          <h2 style="font-size:1.5rem; margin-bottom:2rem">Currently_</h2>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:1.25rem; font-size:.9rem">
+            <li style="display:flex; gap:1rem"><span class="font-mono" style="color:var(--accent)">01</span> Building Suspicious Activity Detection</li>
+            <li style="display:flex; gap:1rem"><span class="font-mono" style="color:var(--accent)">02</span> Mastering NumPy &amp; ML Libraries</li>
+            <li style="display:flex; gap:1rem"><span class="font-mono" style="color:var(--accent)">03</span> Developing Dragon.xyz</li>
+            <li style="display:flex; gap:1rem"><span class="font-mono" style="color:var(--accent)">04</span> Learning AI-native Workflows</li>
+          </ul>
+        </div>
+
+        <div class="col-7">
+          <h2 style="font-size:1.5rem; margin-bottom:2rem">Technical Stack_</h2>
+          <div id="skills" class="grid grid-2"></div>
+        </div>
+
+        <div class="col-5">
+          <h2 style="font-size:1.5rem; margin-bottom:2rem">Interests_</h2>
+          <div class="grid" style="grid-template-columns:1fr 1fr; gap:.5rem">
+            <div class="card" style="padding:1rem">📂 Open Source</div>
+            <div class="card" style="padding:1rem">🧠 AI &amp; ML</div>
+            <div class="card" style="padding:1rem">🎨 Design Systems</div>
+            <div class="card" style="padding:1rem">🎮 Game Dev</div>
+            <div class="card" style="padding:1rem">🎵 Lo-fi Music</div>
+            <div class="card" style="padding:1rem">📖 Sci-fi Books</div>
+            <div class="card" style="padding:1rem">☕ Espresso</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="/script.js"></script>
+  <script>
+    mountChrome('/about/');
+    const skills = [
+      ['React / Next.js', 92], ['Python / ML', 88], ['Node.js', 85],
+      ['Tailwind CSS', 95], ['Cybersecurity', 80], ['AI / LLMs', 82],
+    ];
+    document.getElementById('skills').innerHTML = skills.map(([n, l]) => `
+      <div class="skill">
+        <div style="display:flex; justify-content:space-between; margin-bottom:.5rem; font-size:.7rem; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:.15em; color:var(--muted)">
+          <span>${n}</span><span style="color:var(--accent)">${l}%</span>
+        </div>
+        <div class="skill-bar"><div style="width:0" data-w="${l}%"></div></div>
+      </div>`).join('');
+    setTimeout(() => document.querySelectorAll('.skill-bar > div').forEach(b => b.style.width = b.dataset.w), 100);
+  </script>
+</body>
+</html>

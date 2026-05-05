@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vault — Dragon.xyz</title>
+  <meta name="description" content="Active builds and neural experiments." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main>
+    <div class="container">
+      <div class="section-label">— Registry_V3</div>
+      <h1 style="font-family:var(--font-display); font-size:clamp(3rem,10vw,8rem); font-style:italic; text-transform:uppercase; letter-spacing:-.05em; line-height:.9">Builds<span style="color:var(--accent); font-style:normal">.</span></h1>
+      <p class="section-desc" style="margin-top:2rem">A collection of neural interfaces, packet engines, and developer tools.</p>
+      <div id="projects" class="grid grid-2" style="margin-top:3rem"></div>
+    </div>
+  </main>
+
+  <div id="modal" class="hidden" style="position:fixed; inset:0; z-index:200; background:rgba(2,4,8,.95); backdrop-filter:blur(20px); display:flex; align-items:flex-start; justify-content:center; padding:2rem 1rem; overflow-y:auto" onclick="if(event.target===this)closeModal()">
+    <div id="modal-body" style="background:var(--bg-2); border:1px solid var(--border); border-radius:2rem; padding:2.5rem; max-width:900px; width:100%; margin-top:2rem; position:relative"></div>
+  </div>
+
+  <script src="/script.js"></script>
+  <script>
+    mountChrome('/projects/');
+    const projects = [
+      { id:'code-notes', icon:'📝', name:'Code Notes', tagline:'Hierarchical knowledge base', category:'Tool',
+        description:'Hierarchical knowledge base with code blocks, nested topics and a powerful editor.',
+        long:"A blazing-fast note-taking app built for developers. Features a tree-structured topic system, syntax-highlighted code blocks for 100+ languages, full-text search, and a markdown-first editor that gets out of your way.",
+        features:['Nested hierarchical topics','Code block syntax highlighting','Full-text search','Markdown-first editor','Local-first storage'],
+        stack:['React','TypeScript','Tailwind','IndexedDB'] },
+      { id:'pm', icon:'📂', name:'Project Manager', tagline:'Notion-style projects', category:'Productivity',
+        description:'Notion-style projects with table, board and list views, custom properties and nested subtasks.',
+        long:'A flexible project management tool inspired by Notion. Switch between table, kanban, and list views. Define custom properties per project, nest subtasks infinitely, and collaborate in real-time.',
+        features:['Multiple view modes (Table/Board/List)','Custom properties per project','Infinite subtask nesting','Real-time collaboration','Drag and drop'],
+        stack:['Next.js','TypeScript','Postgres','tRPC'] },
+      { id:'wa-ai', icon:'🤖', name:'WhatsApp AI Bot', tagline:'Conversational AI on WhatsApp', category:'AI',
+        description:'Advanced automation and LLM integration brought to WhatsApp.',
+        long:'A WhatsApp bot powered by GPT-4 with custom personality and memory. Handles 1000+ daily users, supports voice notes, image generation, and integrates with external APIs for tasks like booking, reminders, and translations.',
+        features:['GPT-4 powered conversations','Voice note transcription','Image generation','Persistent memory per user','Multi-language support'],
+        stack:['Python','FastAPI','OpenAI','Twilio'] },
+      { id:'translator', icon:'🌐', name:'Real-time Translator', tagline:'Cross-language API bridge', category:'Backend',
+        description:'Real-time cross-language API bridging with sub-200ms latency.',
+        long:'A real-time translation service that bridges APIs in different languages. Uses WebSockets for instant delivery and supports 50+ language pairs with high accuracy.',
+        features:['50+ language pairs','Sub-200ms latency','WebSocket streaming','Auto language detection'],
+        stack:['Node.js','WebSockets','Redis'] },
+    ];
+    document.getElementById('projects').innerHTML = projects.map((p, i) => `
+      <div class="card" style="cursor:pointer" onclick="openModal(${i})">
+        <div style="display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:1.5rem">
+          <div style="font-size:3rem">${p.icon}</div>
+          <span class="tag">${p.category} // 0${i+1}</span>
+        </div>
+        <h3 style="font-size:1.75rem; font-weight:900; font-style:italic; text-transform:uppercase; margin-bottom:.5rem">${p.name}</h3>
+        <p style="color:var(--muted); font-size:.95rem">${p.description}</p>
+        <p style="margin-top:1.25rem; font-size:.8rem; font-weight:900; text-transform:uppercase; letter-spacing:.15em; color:var(--accent)">Explore Module ↗</p>
+      </div>`).join('');
+
+    function openModal(i) {
+      const p = projects[i];
+      document.getElementById('modal-body').innerHTML = `
+        <button onclick="closeModal()" style="position:absolute; top:1.5rem; right:1.5rem; width:40px; height:40px; border-radius:50%; border:1px solid var(--border); background:var(--surface); font-size:1.2rem">✕</button>
+        <span class="tag">${p.tagline}</span>
+        <h2 style="font-size:clamp(2rem,5vw,4rem); font-weight:900; font-style:italic; text-transform:uppercase; margin:1rem 0 1.5rem">${p.name}</h2>
+        <p style="color:var(--muted-2); font-size:1.1rem; font-style:italic; margin-bottom:2rem">${p.long}</p>
+        <h4 class="font-mono" style="font-size:.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:.25em; margin-bottom:1rem">Node_Specs</h4>
+        <div style="display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:2rem">${p.stack.map(s=>`<span class="tag">${s}</span>`).join('')}</div>
+        <h4 class="font-mono" style="font-size:.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:.25em; margin-bottom:1rem">Core_Capabilities</h4>
+        <ul style="list-style:none">${p.features.map(f=>`<li style="padding:.5rem 0; display:flex; gap:.75rem; align-items:center"><span style="width:8px; height:8px; border-radius:50%; background:var(--accent); box-shadow:0 0 10px var(--accent)"></span> ${f}</li>`).join('')}</ul>`;
+      document.getElementById('modal').classList.remove('hidden');
+    }
+    function closeModal(){document.getElementById('modal').classList.add('hidden');}
+  </script>
+</body>
+</html>
